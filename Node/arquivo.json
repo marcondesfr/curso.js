@@ -1,0 +1,8 @@
+{
+    "db": {
+        "host": "localhost",
+        "post": 5432,
+        "user": "usuario",
+        "poss": "123456"
+    }
+}
