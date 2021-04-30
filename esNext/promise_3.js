@@ -1,6 +1,6 @@
 function gerarNumeroEntre(min, max) {
     if(min > max) {
-        [max, min] = [min, max]
+        [max, min] = [min, max]// Destruction
     }
     return new Promise(resolve => {
         const fator = max - min +1;
