@@ -1,0 +1,48 @@
+<h1>Projeto</h1>
+<ul class="tree">
+    <li>
+        <span id="folder">backend</span>
+        <ul>
+            <li>
+                <span id="folder">app</span>
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span id="folder">config</span>
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span id="folder">frontend</span>
+        <ul>
+            <li>
+                <span id="folder">public</span>
+                <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    document.querySelectorAll('#folder').forEach( folder => { // Percorrer todos os selecionados do HTML
+        folder.onclick = function (event) { // Funcao do click chamando um evento
+            const ul = folder.nextElementSibling // Pega o proximo elemento de um elemento especifico
+            const d = ul.style.display;
+            ul.style.diplay = d === 'none' ? 'block' : 'none'
+        }
+    })
+</script>
