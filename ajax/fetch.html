@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Estados</h1>
+
+    <script>
+        const url = 'dados/estados.json'
+        fetch(url).then( resp => resp.json())
+        .then(estados => {
+            const itens = estados.reduce(
+                (html, estado) => html + `<li>${estado.nome}</li>`,''
+            )
+            document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`);
+        });
+    </script>
+</body>
+</html>

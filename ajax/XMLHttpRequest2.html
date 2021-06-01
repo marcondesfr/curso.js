@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="progresso">
+    <input type="file" name="arquivo">
+    <div class="progresso"></div>
+    <script>
+        function ajaxUpload(config) {
+            const xhr = new XMLHttpRequest();
+
+            if (xhr.upload) {
+                xhr.upload.onprogess = e => {
+                    const atual = e.loaded;
+                    const total = e.total;
+                    const percetual = Math.floor(autal / toal * 100);
+                    config.progresso({ atual, toal, percetual })
+                }
+            }
+            xhr.open("post", config.url, true);
+            xhr.send(config.formData);
+        }
+        document.querySelector('input[type=file]').onchange = e => {
+            const formData = new FormData()
+            const inputFile = e.target;
+            formData.append(inputFile.name, inputFile.files[0])
+        }
+        ajaxUpload({
+            url: "upload",
+            formData: formData,
+            progresso(dados) {
+                const progresso = document.querySelector('.progresso');
+                progresso.innerHTML = JSON.stringify(dados);
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Mono', monospace;
+        }
+        body {
+            background: #444c;
+        }
+
+        .boards {
+            display: flex;
+        }
+
+        .board {
+            background: #888c;
+            border-radius: 9px;
+            padding: 5px;
+            margin: 10px 30px;
+        }
+        h3 {
+            margin-bottom: 40px;
+        }
+        .dropzone {
+            padding: 10px;
+            min-width: 300px;
+            min-height: 100px;
+            border-radius: 5px;
+            transition: 0.4s;
+        }
+
+        .card {
+            transition: 0.4s;
+            background: #999c;
+            border-radius: 8px;
+            align-items: center;
+            padding: 10px;
+            margin: 0;
+            border-bottom: #222f 1px solid;
+            box-shadow: 1px 1px 2px 1px black;
+
+        }
+        .contair {
+            padding: 10px;
+        }
+
+        .status {
+            margin: 0 5px 10px 10px;
+            width: 60px;
+            height: 10px;
+            border-radius: 9px;
+        }
+        .green {
+            background: rgb(118, 230, 66);
+        }
+
+        .blue {
+            background: rgb(21, 192, 235);
+        }
+
+        .red {
+            background: #c00;
+        }
+        .in-draging {
+            background: rgba(114, 59, 59, 0.192);
+            opacity: 0.3;
+        }
+        .selected {
+            background: #666c;
+        }
+        .over {
+            background: rgba(130, 233, 135, 0.541);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boards">
+        <div class="board">
+            <h3>To do</h3>
+            <div class="dropzone">
+                <div class="card" draggable="true">
+                    <div class="status green"></div>
+                    <div class="contair">Exercise</div>
+                </div>
+            </div>
+        </div>
+        <div class="board">
+            <h3>In process</h3>
+            <div class="dropzone">
+                <div class="card" draggable="true">
+                    <div class="status blue"></div>
+                    <div class="contair">Work</div>
+                </div>
+            </div>
+        </div>
+        <div class="board">
+            <h3>Done</h3>
+            <div class="dropzone">
+                <div class="card" draggable="true">
+                    <div class="status red"></div>
+                    <div class="contair">Shopping</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const dropzones = document.querySelectorAll('.dropzone')
+        dropzones.forEach( dropzone => {
+            dropzone.addEventListener('dragenter', dragenter)
+            dropzone.addEventListener('dragover', dragover)
+            dropzone.addEventListener('dragleave', dragleave)
+            dropzone.addEventListener('drop', drop)})
+
+        function dragenter() {
+            
+        }
+        function dragover() {
+            this.classList.add('over')
+            const cardBeingMove = document.querySelector('.in-draging')
+            this.appendChild(cardBeingMove)
+            
+        }
+        function dragleave() {
+            this.classList.remove('over')
+           
+        }
+        function drop() {
+            this.classList.remove('over')
+        }
+        const cards = document.querySelectorAll('.card')
+        cards.forEach( card => {
+            card.addEventListener('dragstart', dragstart)
+            card.addEventListener('dragend', dragend)
+            card.addEventListener('drag', drag)})
+        function dragstart() {
+            const dropzones = document.querySelectorAll('.dropzone').forEach( dropzone => dropzone.classList.add('selected'))
+            this.classList.add('in-draging')
+        }
+        function dragend() {
+            const dropzones = document.querySelectorAll('.dropzone').forEach( dropzone => dropzone.classList.remove('selected'))
+            this.classList.remove('in-draging')
+        }
+        function drag() {
+            
+            
+        }
+    </script>
+</body>
+
+</html>
