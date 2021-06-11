@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="conteudo exercicio">
+    <h1>Modificando HTML #03</h1>
+    <div id="conteudo"></div>
+
+
+    <script>
+        //$(document).ready(function() { Funciona do mesmo jeito
+        $(function() {                // Funciona do mesmo jeito
+            const pessoas = [
+            { nome: 'Ana', nota: 9.1},
+            { nome: 'Brianca', nota: 8.4},
+            { nome: 'Carlos', nota: 7.6},
+            { nome: 'Julia', nota: 9.7}
+            ]
+            
+            const linhas = pessoas.map(p => {
+                const tdNome = $('<td>').html(p.nome)
+                    const tdNota = $('<td>').html(p.nome)
+                        return $('<tr>').append(tdNome).append(tdNota)
+            })
+
+            const tabela = $('<table>').append(linhas)
+                .css('border', 'solid 5px')
+
+                $('#conteudo').append(tabela)
+        })
+    </script>
+</body>
+</html>

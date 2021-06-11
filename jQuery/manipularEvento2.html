@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="conteudo exercicio">
+    <h1>Eventos #02</h1>
+    <div id="div1">1</div>
+    <div id="resultado">?</div>
+    <br>
+    <input type="text" placeholder="Digite e Selecione">
+    <div id="resultado2">?</div>
+
+
+    <script>
+        const alternarDestaque = () => {
+            $('#div1').toggleClass('#destaque')
+        }
+        $('#div1').hover(alternarDestaque, alternarDestaque)
+        //$('#div1').on('mouseenter mouseleave', alternarDestaque) Also do what the .hover do
+        $('#div1').one('mouseenter', e => alert('Aviso IMPORTANTE: Obrigado!')) // Chamado apenas uma unica vez
+        $('#div1').dblclick(e => $('#div1').fadeOut(1000).fadeIn(1000)) // Chamada quando houver 2 clicks
+
+        $(window).resize(function (e) { // Chamada quando redimecionado o window
+            const l = $(window).width() // Pega a largura
+            const a = $(window).height() // Pega a altura
+            $('#resultado1').html(`Largura: ${l} Altura: ${a}`) // Imprime em resultado2 os resultados
+        })
+
+        $(':input').select(e => { // Chamada dentro do input selecionado por filtro
+            const inicio = e.target.selectionStart // Inicio da selecao
+            const fim = e.target.selectionEnd // Final da selecao
+            $('#resultado2').html(e.target.value.substring(inicio, fim)) // Valor do algo selecionado
+        })
+    </script>
+</body>
+</html>
