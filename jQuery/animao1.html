@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Animacao #01</h1>
+    <button>Iniciar</button>
+    <div id="animar">Animar!</div>
+
+    <script>
+        $('button').click(e => {
+            //$('#animar').hide(t).show(t)
+            //$('#animar').toggle(t).toggle(t)
+            //$('#animar').fadeOut(t).fadeIn(t)
+            //$('#animar').fadeToggle(t).fadeToggle(t)
+            //$('#animar').slideUp(t).slideDown(t)
+            $('#animar').slideToggle(t).slideToggle(t)
+        })
+    </script>
+</body>
+</html>

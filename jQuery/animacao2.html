@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <style>
+      body {
+          position: relative;
+          background:#999;
+          color: #000;
+      }
+      div {
+          position: absolute;
+          display: inline;
+          border: solid 10px #000;
+          padding: 50px;
+          font-size: 3em;
+          background: crimson;
+      }
+  </style>
+</head>
+<body>
+    <div>Animar!</div>
+
+    <script>
+        function alterarLagura(valor, duracao, cb) {
+            $('div').animate({width: `+=${valor}`}, duracao, cb)
+        }
+        function moverDiagonal(valor, duracao, cb) {
+            $('div').animate({top: `+=${valor}`, left: `+=${valor}` }, duracao, cb)
+        }
+        function girar(valor, duracao, cb) {
+            $('div').animate({transform: `+=${valor}`},{
+                step: function(valor) {
+                    $(this).css('transform', `rotate(${valor}deg)`)
+                }, duration: duracao
+            }, 'linear', cb)
+        }
+
+        alterarLagura(300,300, () => {
+            alterarLagura(-300, 'slow', () => {
+                moverDiagonal(300, 600, () => {
+                    girar(3240, 2000)
+                })
+            })
+        })
+    </script>
+    
+</body>
+</html>
