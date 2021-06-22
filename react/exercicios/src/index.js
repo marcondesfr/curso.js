@@ -1,4 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-ReactDOM.render(<h1>React</h1>, document.getElementById('root'))
+import BomDia from './components/BomDia'
+
+ReactDOM.render(< BomDia nome="Marcondes"/> , document.getElementById('root'))
