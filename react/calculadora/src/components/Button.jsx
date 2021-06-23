@@ -8,5 +8,5 @@ className={`
             button
             ${props.operation ? 'operation' : ''}
             ${props.double ? 'double' : ''}
-            ${props.tiple ? ' triple' : ''}
+            ${props.triple ? 'triple' : ''}
 `} > {props.label}</button>
