@@ -8,7 +8,7 @@ const headerProps = {
     subtitle: 'Cadastro de usuarios: Incluir, Listar, Alterar e Excluir.'
 }
 
-const baseUrl = 'http://localhost:3000/users'
+const baseUrl = 'http://localhost:3001/users'
 const initialState = {
     user: {name: '', email: ''},
     list: []
@@ -59,7 +59,7 @@ export default class UserCrud extends Component {
                     <div className="col-12 col-md-6">
                         <div className="from-grou">
                             <label>E-mail</label>
-                            <input type="text" onChange={e => this.updateField(e)} placeholder="Digite o e-mail..." className="form-control" name="email" value="this.state.user.email"/>
+                            <input type="text" placeholder="Digite o e-mail..." className="form-control" name="email" value={this.state.user.email} onChange={e => this.updateField(e)}/>
                         </div>
                     </div>
                 </div>
