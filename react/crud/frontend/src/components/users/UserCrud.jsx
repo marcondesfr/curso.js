@@ -135,6 +135,7 @@ export default class UserCrud extends Component {
             <Main {...headerProps}>
                 {this.renderForm()}
                 {this.renderTable()}
+                
             </Main>
         )
     }
