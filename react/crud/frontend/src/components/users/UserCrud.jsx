@@ -5,7 +5,7 @@ import axios from 'axios'
 const headerProps = {
     icons: 'users',
     title: 'Usuarios',
-    subtitle: 'Cadastro de usuarios: Incluir, Listar, Alterar e Excluir.'
+    subtitle: 'Cadastro de usuarios: CRUD.'
 }
 
 const baseUrl = 'http://localhost:3001/users'
